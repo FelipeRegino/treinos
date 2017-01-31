@@ -10,11 +10,12 @@ public class Treino {
     Corredor corredor;
     List<Corrida> listaCorridas;
 
-    public void imprimirRelatorio(){
-        System.out.println(this.corredor.nome);
-        System.out.println(this.corredor.peso);
-        System.out.println(this.corredor.altura);
-        System.out.println(this.corredor.nivel);
+    public void ImprimirRelatorio(){
+        System.out.println("DADOS DO CORREDOR");
+        System.out.println("Nome: " + this.corredor.nome);
+        System.out.println("Peso: " + this.corredor.peso + "kg");
+        System.out.println("Altura: " + this.corredor.altura + "m");
+        System.out.print("Nível: " + this.corredor.nivel + "/n");
 
         int contador = 0;
         float distanciaTotal = 0;
@@ -22,7 +23,7 @@ public class Treino {
 
         for (Corrida corrida: listaCorridas) {
             contador++;
-            System.out.println("Dados da corrida nº" + contador + ":");
+            System.out.println("DADOS DA CORRIDA nº" + contador + ":");
             System.out.println(corrida.dataInicio);
             System.out.println(corrida.distancia);
             System.out.println(corrida.tempo);
@@ -35,14 +36,14 @@ public class Treino {
         System.out.println("Distância total percorrida: " + distanciaTotal);
         System.out.print("Tempo total gasto: " + tempoTotal + "/n");
 
-        System.out.println("Distância média percorrida para corridas de dificuldade 1: " + CalcularDistanciaMedia(listarCorridasPorDificuldade(1)));
-        System.out.print("Tempo médio gasto para corridas de dificuldade 1: " + CalcularTempoMedio(listarCorridasPorDificuldade(1)) + "/n");
+        System.out.println("Distância média percorrida para corridas de dificuldade 1: " + CalcularDistanciaMedia(ListarCorridasPorDificuldade(1)));
+        System.out.print("Tempo médio gasto para corridas de dificuldade 1: " + CalcularTempoMedio(ListarCorridasPorDificuldade(1)) + "/n");
 
-        System.out.println("Distância média percorrida para corridas de dificuldade 2: " + CalcularDistanciaMedia(listarCorridasPorDificuldade(2)));
-        System.out.print("Tempo médio gasto para corridas de dificuldade 2: " + CalcularTempoMedio(listarCorridasPorDificuldade(2)) + "/n");
+        System.out.println("Distância média percorrida para corridas de dificuldade 2: " + CalcularDistanciaMedia(ListarCorridasPorDificuldade(2)));
+        System.out.print("Tempo médio gasto para corridas de dificuldade 2: " + CalcularTempoMedio(ListarCorridasPorDificuldade(2)) + "/n");
 
-        System.out.print("Distância média percorrida para corridas de dificuldade 3: " + CalcularDistanciaMedia(listarCorridasPorDificuldade(3)) + "/n");
-        System.out.print("Tempo médio gasto para corridas de dificuldade 3: " + CalcularTempoMedio(listarCorridasPorDificuldade(3)) + "/n");
+        System.out.print("Distância média percorrida para corridas de dificuldade 3: " + CalcularDistanciaMedia(ListarCorridasPorDificuldade(3)) + "/n");
+        System.out.print("Tempo médio gasto para corridas de dificuldade 3: " + CalcularTempoMedio(ListarCorridasPorDificuldade(3)) + "/n");
     }
 
     private float CalcularDistanciaMedia(List<Corrida> pListaCorrida){
@@ -69,7 +70,7 @@ public class Treino {
         return (tempoTotal / contador);
     }
 
-    private List<Corrida> listarCorridasPorDificuldade(int pDificuldade){
+    private List<Corrida> ListarCorridasPorDificuldade(int pDificuldade){
         List<Corrida> listaCorridas = new LinkedList<Corrida>();
 
         for (Corrida corrida : this.listaCorridas) {
