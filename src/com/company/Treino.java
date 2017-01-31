@@ -19,13 +19,13 @@ public class Treino {
         System.out.println(this.corredor.altura);
         System.out.println(this.corredor.nivel);
 
-        int i = 0;
+        int contador = 0;
         float distanciaTotal = 0;
         double tempoTotal = 0;
 
         for (Corrida corrida: listaCorridas) {
-            i++;
-            System.out.println("Dados da corrida nº" + i + ":");
+            contador++;
+            System.out.println("Dados da corrida nº" + contador + ":");
             System.out.println(corrida.dataInicio);
             System.out.println(corrida.distancia);
             System.out.println(corrida.tempo);
@@ -39,11 +39,12 @@ public class Treino {
         System.out.print("Tempo total gasto: " + tempoTotal + "/n");
 
         System.out.println("Distância média percorrida para corridas de dificuldade 1: " + CalcularDistanciaMedia(listaCorridasN1));
-        System.out.println("Distância média percorrida para corridas de dificuldade 2: " + CalcularDistanciaMedia(listaCorridasN2));
-        System.out.print("Distância média percorrida para corridas de dificuldade 3: " + CalcularDistanciaMedia(listaCorridasN3) + "/n");
+        System.out.print("Tempo médio gasto para corridas de dificuldade 1: " + CalcularTempoMedio(listaCorridasN1) + "/n");
 
-        System.out.println("Tempo médio gasto para corridas de dificuldade 1: " + CalcularTempoMedio(listaCorridasN1));
-        System.out.println("Tempo médio gasto para corridas de dificuldade 2: " + CalcularTempoMedio(listaCorridasN2));
+        System.out.println("Distância média percorrida para corridas de dificuldade 2: " + CalcularDistanciaMedia(listaCorridasN2));
+        System.out.print("Tempo médio gasto para corridas de dificuldade 2: " + CalcularTempoMedio(listaCorridasN2) + "/n");
+
+        System.out.print("Distância média percorrida para corridas de dificuldade 3: " + CalcularDistanciaMedia(listaCorridasN3) + "/n");
         System.out.print("Tempo médio gasto para corridas de dificuldade 3: " + CalcularTempoMedio(listaCorridasN3) + "/n");
     }
 
