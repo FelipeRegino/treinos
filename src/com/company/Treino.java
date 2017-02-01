@@ -3,9 +3,7 @@ package com.company;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * Created by Bruno on 30/01/2017.
- */
+
 public class Treino {
     Corredor corredor;
     List<Corrida> listaCorridas;
@@ -14,10 +12,10 @@ public class Treino {
     List<Corrida> listaCorridasN3 = listarCorridasNivel3();
 
     public void imprimirRelatorio(){
-        System.out.println(this.corredor.nome);
-        System.out.println(this.corredor.peso);
-        System.out.println(this.corredor.altura);
-        System.out.println(this.corredor.nivel);
+        System.out.println(this.corredor.getNome());
+        System.out.println(this.corredor.getPeso());
+        System.out.println(this.corredor.getAltura());
+        System.out.println(this.corredor.getNivel());
 
         int contador = 0;
         float distanciaTotal = 0;
@@ -26,13 +24,13 @@ public class Treino {
         for (Corrida corrida: listaCorridas) {
             contador++;
             System.out.println("Dados da corrida nº" + contador + ":");
-            System.out.println(corrida.dataInicio);
-            System.out.println(corrida.distancia);
-            System.out.println(corrida.tempo);
-            System.out.print(corrida.dificuldade + "/n");
+            System.out.println(corrida.getDataInicio());
+            System.out.println(corrida.getDistancia());
+            System.out.println(corrida.getTempo());
+            System.out.print(corrida.getDificuldade() + "/n");
 
-            distanciaTotal =+ corrida.distancia;
-            tempoTotal =+ corrida.tempo;
+            distanciaTotal =+ corrida.getDistancia();
+            tempoTotal =+ corrida.getTempo();
         }
 
         System.out.println("Distância total percorrida: " + distanciaTotal);
@@ -54,7 +52,7 @@ public class Treino {
 
         for (Corrida corrida : pListaCorrida) {
             contador++;
-            distanciaTotal =+ corrida.distancia;
+            distanciaTotal =+ corrida.getDistancia();
         }
 
         return (distanciaTotal / contador);
@@ -66,7 +64,7 @@ public class Treino {
 
         for (Corrida corrida : pListaCorrida) {
             contador++;
-            tempoTotal =+ corrida.tempo;
+            tempoTotal =+ corrida.getTempo();
         }
 
         return (tempoTotal / contador);
@@ -76,7 +74,7 @@ public class Treino {
         List<Corrida> listaCorridasN1 = new LinkedList<Corrida>();
 
         for (Corrida corrida : listaCorridas) {
-            if(corrida.dificuldade == 1){
+            if(corrida.getDificuldade() == 1){
                 listaCorridasN1.add(corrida);
             }
         }
@@ -88,7 +86,7 @@ public class Treino {
         List<Corrida> listaCorridasN2 = new LinkedList<Corrida>();
 
         for (Corrida corrida : listaCorridas) {
-            if(corrida.dificuldade == 2){
+            if(corrida.getDificuldade() == 2){
                 listaCorridasN2.add(corrida);
             }
         }
@@ -100,7 +98,7 @@ public class Treino {
         List<Corrida> listaCorridasN3 = new LinkedList<Corrida>();
 
         for (Corrida corrida : listaCorridas) {
-            if(corrida.dificuldade == 2){
+            if(corrida.getDificuldade() == 2){
                 listaCorridasN3.add(corrida);
             }
         }
