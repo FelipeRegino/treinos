@@ -14,8 +14,7 @@ public class Corrida {
 		this.tempo = tempo;
 		this.dificuldade = dificuldade;
 	}
-	
-	
+
 	public Date getDataInicio() {
 		return dataInicio;
 	}

@@ -1,4 +1,6 @@
-package com.company;
+package com.connection;
+import com.company.Corredor;
+
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -10,9 +12,9 @@ public class CorredorDAO {
             new Connect();
 			this.connection = Connect.connection;
         } catch (ClassNotFoundException ex) {
-            System.out.println("ERRO de conex„o: " + ex);
+            System.out.println("ERRO de conex√£o: " + ex);
         } catch (SQLException ex) {
-            System.out.println("ERRO de conex„o: " + ex);
+            System.out.println("ERRO de conex√£o: " + ex);
         }
     }
 	

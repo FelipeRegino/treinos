@@ -3,12 +3,14 @@ package com.company;
 import java.util.LinkedList;
 import java.util.List;
 
-
+/**
+ * Created by Bruno on 30/01/2017.
+ */
 public class Treino {
     Corredor corredor;
     List<Corrida> listaCorridas;
 
-    public void imprimirRelatorio(){
+    public void ImprimirRelatorio(){
         System.out.println(this.corredor.getNome());
         System.out.println(this.corredor.getPeso());
         System.out.println(this.corredor.getAltura());
@@ -68,39 +70,15 @@ public class Treino {
     }
 
     private List<Corrida> ListarCorridasPorDificuldade(int pDificuldade){
-        List<Corrida> listaCorridasN1 = new LinkedList<Corrida>();
+        List<Corrida> listaCorridas = new LinkedList<Corrida>();
 
-        for (Corrida corrida : listaCorridas) {
-            if(corrida.getDificuldade() == 1){
-                listaCorridasN1.add(corrida);
+        for (Corrida corrida : this.listaCorridas) {
+            if(corrida.getDificuldade() == pDificuldade){
+                listaCorridas.add(corrida);
             }
         }
 
-        return listaCorridasN1;
-    }
-
-    private List<Corrida> listarCorridasNivel2(){
-        List<Corrida> listaCorridasN2 = new LinkedList<Corrida>();
-
-        for (Corrida corrida : listaCorridas) {
-            if(corrida.getDificuldade() == 2){
-                listaCorridasN2.add(corrida);
-            }
-        }
-
-        return listaCorridasN2;
-    }
-
-    private List<Corrida> listarCorridasNivel3(){
-        List<Corrida> listaCorridasN3 = new LinkedList<Corrida>();
-
-        for (Corrida corrida : listaCorridas) {
-            if(corrida.getDificuldade() == 2){
-                listaCorridasN3.add(corrida);
-            }
-        }
-
-        return listaCorridasN3;
+        return listaCorridas;
     }
 
 }
