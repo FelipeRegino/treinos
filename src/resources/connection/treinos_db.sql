@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 01-Fev-2017 às 02:51
+-- Generation Time: 24-Fev-2017 às 04:25
 -- Versão do servidor: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -34,6 +34,19 @@ CREATE TABLE `corredor` (
   `nivel` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Extraindo dados da tabela `corredor`
+--
+
+INSERT INTO `corredor` (`idCorredor`, `nome`, `peso`, `altura`, `nivel`) VALUES
+(2, 'Bruno', 80, 1.8, 2),
+(3, 'Bruno', 80, 1.8, 2),
+(4, 'Bruno', 80, 1.8, 2),
+(5, 'Bruno', 180, 2, 20),
+(6, 'Bruno', 80, 1.8, 2),
+(7, 'Bruno', 80, 1.8, 2),
+(8, 'Bruno', 80, 1.8, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -57,7 +70,7 @@ CREATE TABLE `corrida` (
 CREATE TABLE `treinos` (
   `idTreino` int(11) NOT NULL,
   `corredor` int(11) NOT NULL,
-  `corridas` varchar(500) NOT NULL
+  `corrida` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -79,13 +92,6 @@ ALTER TABLE `corrida`
   ADD UNIQUE KEY `idCorrida` (`idCorrida`);
 
 --
--- Indexes for table `treinos`
---
-ALTER TABLE `treinos`
-  ADD PRIMARY KEY (`idTreino`),
-  ADD UNIQUE KEY `idTreino` (`idTreino`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -93,17 +99,12 @@ ALTER TABLE `treinos`
 -- AUTO_INCREMENT for table `corredor`
 --
 ALTER TABLE `corredor`
-  MODIFY `idCorredor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idCorredor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `corrida`
 --
 ALTER TABLE `corrida`
-  MODIFY `idCorrida` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `treinos`
---
-ALTER TABLE `treinos`
-  MODIFY `idTreino` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idCorrida` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
