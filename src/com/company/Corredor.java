@@ -1,6 +1,8 @@
 package com.company;
+import com.connection.CorredorDAO;
 
-public class Corredor {
+public class Corredor extends CorredorDAO {
+	private int id;
     private String nome;
     private double peso;
     private double altura;
@@ -13,7 +15,17 @@ public class Corredor {
 		this.nivel = nivel;
 	}  
     
-    public String getNome() {
+    public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public String getNome() {
 		return nome;
 	}
 	public void setNome(String nome) {

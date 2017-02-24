@@ -1,18 +1,27 @@
 package com.company;
-
 import java.util.Date;
+import com.connection.CorridaDAO;
 
-public class Corrida {
+public class Corrida extends CorridaDAO {
+	private int id;
     private Date dataInicio;
-    private float distancia;
+    private double distancia;
     private double tempo;
     private int dificuldade;
     
-	public Corrida(Date dataInicio, float distancia, double tempo, int dificuldade) {
+	public Corrida(Date dataInicio, double distancia, double tempo, int dificuldade) {
 		this.dataInicio = dataInicio;
 		this.distancia = distancia;
 		this.tempo = tempo;
 		this.dificuldade = dificuldade;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public Date getDataInicio() {
@@ -21,7 +30,7 @@ public class Corrida {
 	public void setDataInicio(Date dataInicio) {
 		this.dataInicio = dataInicio;
 	}
-	public float getDistancia() {
+	public double getDistancia() {
 		return distancia;
 	}
 	public void setDistancia(float distancia) {

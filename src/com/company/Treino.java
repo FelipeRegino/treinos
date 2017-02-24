@@ -17,7 +17,7 @@ public class Treino {
         System.out.println(this.corredor.getNivel());
 
         int contador = 0;
-        float distanciaTotal = 0;
+        double distanciaTotal = 0;
         double tempoTotal = 0;
 
         for (Corrida corrida: listaCorridas) {
@@ -45,9 +45,9 @@ public class Treino {
         System.out.print("Tempo médio gasto para corridas de dificuldade 3: " + CalcularTempoMedio(ListarCorridasPorDificuldade(3)) + "/n");
     }
 
-    private float CalcularDistanciaMedia(List<Corrida> pListaCorrida){
+    private double CalcularDistanciaMedia(List<Corrida> pListaCorrida){
         int contador = 0;
-        float distanciaTotal = 0;
+        double distanciaTotal = 0;
 
         for (Corrida corrida : pListaCorrida) {
             contador++;
