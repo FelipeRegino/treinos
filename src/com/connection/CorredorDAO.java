@@ -4,7 +4,7 @@ import com.company.Corredor;
 import java.sql.*;
 import java.util.ArrayList;
 
-public abstract class CorredorDAO {
+public class CorredorDAO {
 	private Connection connection;
 	
 	public CorredorDAO() {
@@ -12,21 +12,27 @@ public abstract class CorredorDAO {
             new Connect();
 			this.connection = Connect.connection;
         } catch (ClassNotFoundException ex) {
-            System.out.println("ERRO de conexão: " + ex);
+            System.out.println("ERRO de conexï¿½o: " + ex);
         } catch (SQLException ex) {
-            System.out.println("ERRO de conexão: " + ex);
+            System.out.println("ERRO de conexï¿½o: " + ex);
         }
     }
 	
 	public void insere(Corredor corredor){
 		String sql = "INSERT INTO `corredor` (`nome`, `peso`, `altura`, `nivel`) VALUES (?, ?, ?, ?);";
 		 try {
-	            PreparedStatement stmt = connection.prepareStatement(sql);
+	            PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 	            stmt.setString(1, corredor.getNome());
 	            stmt.setDouble(2, corredor.getPeso());
 	            stmt.setDouble(3, corredor.getAltura());
 	            stmt.setInt(4, corredor.getNivel());
 	            stmt.execute();
+	            ResultSet rs = stmt.getGeneratedKeys();
+	            if(rs.next()){
+                    int last_inserted_id = rs.getInt(1);
+                    corredor.setId(last_inserted_id);
+                }
+	            
 	            stmt.close();
 	        } catch (Exception e) {
 	           System.out.println("ERRO ao inserir: " + e); 
@@ -67,6 +73,35 @@ public abstract class CorredorDAO {
 	        } catch (Exception e) {
 	           throw new RuntimeException(e);
 	        }
+	}
+	
+	public Corredor pegaPorId(int id){
+		String sql = "SELECT * FROM `corredor` WHERE idCorredor = ?";
+		String nome = "";
+		double peso = 0.0;
+		double altura = 0.0;
+		int nivel = 0;
+		int idCorredor = 0;
+		
+		 try {
+	            PreparedStatement stmt = connection.prepareStatement(sql);
+	            stmt.setInt(1, id);
+	            ResultSet results = stmt.executeQuery();
+	            while(results.next()){
+		            nome = results.getString("nome");
+		            peso = results.getDouble("peso");
+		            altura = results.getDouble("altura");
+		            nivel = results.getInt("nivel");
+		            idCorredor = results.getInt("idCorredor");
+	            }
+	            Corredor corredor = new Corredor(nome, peso, altura, nivel);
+            	corredor.setId(idCorredor);
+	            results.close();
+	            stmt.close();
+	            return corredor;
+	        } catch (Exception e) {
+	           throw new RuntimeException(e);
+	        }	 
 	}
 	
 	public void deleta(int id){
