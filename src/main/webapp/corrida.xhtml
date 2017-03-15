@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Treinos - Nova corrida</title>
+    <link rel="stylesheet" href="css/style.css" />
+</h:head>
+
+<h:body>
+    <h:form>
+        <div class="box">
+            <h1>Adicionar nova corrida</h1>
+
+            <label>
+                <span>Data:</span>
+                <p:inputMask id="txtDataInicio" mask="99/99/9999" styleClass="input_text"></p:inputMask>
+            </label>
+            <label>
+                <span>Corredor:</span>
+                <p:selectOneMenu id="cbCorredor">
+                    <p:menuitem>
+                        Fácil
+                    </p:menuitem>
+                </p:selectOneMenu>
+            </label>
+            <label>
+                <span>Distância percorrida:</span>
+                <p:inputText id="txtDistancia" styleClass="input_text"></p:inputText>
+                (em km)
+            </label>
+            <label>
+                <span>Tempo gasto:</span>
+                <p:inputMask id="txtTempo" mask="99:99" styleClass="input_text"></p:inputMask>
+            </label>
+            <label>
+                <span>Dificuldade:</span>
+                <p:selectOneMenu id="cbDificuldade">
+                    <p:menuitem>
+                        Fácil
+                    </p:menuitem>
+                </p:selectOneMenu>
+            </label>
+            <div class="formButtons">
+                <p:button value="Salvar" styleClass="button"></p:button>
+                <p:commandButton value="Cancelar" styleClass="button" action="#{corridaBean.IndexRedirect}"></p:commandButton>
+            </div>
+        </div>
+    </h:form>
+</h:body>
+
+</html>
