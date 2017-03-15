@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Treinos - Novo corredor</title>
+    <link rel="stylesheet" href="css/style.css" />
+</h:head>
+
+<h:body>
+    <h:form>
+        <div class="box">
+            <h1>Adicionar novo corredor</h1>
+
+            <label>
+                <span>Nome:</span>
+                <p:inputText id="txtNome" value="#{corredorBean.corredor.nome}" styleClass="input_text"></p:inputText>
+            </label>
+            <label>
+                <span>Peso:</span>
+                <p:inputText id="txtPeso" value="#{corredorBean.corredor.peso}" styleClass="input_text"></p:inputText>
+                (em kg)
+            </label>
+            <label>
+                <span>Altura:</span>
+                <p:inputText id="txtAltura" value="#{corredorBean.corredor.altura}" styleClass="input_text"></p:inputText>
+                (em m)
+            </label>
+            <label>
+                <span>Nível:</span>
+                <p:inputText id="txtNivel" value="#{corredorBean.corredor.nivel}" styleClass="input_text"></p:inputText>
+            </label>
+            <div class="formButtons">
+                <p:commandButton value="Salvar" action="#{corredorBean.adicionarCorredor}" styleClass="button"></p:commandButton>
+                <p:commandButton value="Cancelar" action="#{corredorBean.indexRedirect}" styleClass="button"></p:commandButton>
+            </div>
+        </div>
+    </h:form>
+</h:body>
+
+</html>
