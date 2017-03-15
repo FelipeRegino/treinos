@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Treinos</title>
+</h:head>
+
+<h:body>
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{corredorBean.listarCorredor()}"/>
+    </f:metadata>
+
+    <h:form>
+        <div style="text-align: center">
+            <p:commandButton value="Nova corrida" action="#{corridaBean.CorridaRedirect}"></p:commandButton>
+            <p:commandButton value="Novo corredor" action="#{corredorBean.corredorRedirect}"></p:commandButton>
+            <p:button value="Imprimir relatório"></p:button>
+        </div>
+
+        <div style="width: 50%">
+            Corredores
+
+            <p:dataTable value="#{corredorBean.listaCorredor}" var="corredor">
+                <p:column headerText="Nome">
+                    <h:outputText value="#{corredor.nome}" />
+                </p:column>
+                <p:column headerText="Peso">
+                    <h:outputText value="#{corredor.peso}" />
+                </p:column>
+                <p:column headerText="Altura">
+                    <h:outputText value="#{corredor.altura}" />
+                </p:column>
+                <p:column headerText="Nível">
+                    <h:outputText value="#{corredor.nivel}" />
+                </p:column>
+            </p:dataTable>
+        </div>
+    </h:form>
+</h:body>
+
+</html>
